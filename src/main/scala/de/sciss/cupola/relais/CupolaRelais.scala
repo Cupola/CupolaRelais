@@ -30,7 +30,7 @@ object CupolaRelais extends OSCListener {
 
    def messageReceived( msg: OSCMessage, addr: SocketAddress, time: Long ) {
       msg getName match {
-         case "/t" => relay( msg )
+//         case "/t" => relay( msg )
          case "/dumpOSC" => msg.getArg( 0 ) match {
             case i: java.lang.Integer => dumpOSC( i.intValue )
             case x => log( "Oooops : " + msg + " --> " + x.getClass )
@@ -39,7 +39,8 @@ object CupolaRelais extends OSCListener {
             case i: java.lang.Integer => notify( addr.asInstanceOf[ InetSocketAddress ], i.intValue == 1 )
             case x => log( "Oooops : " + msg + " --> " + x.getClass )
          }
-         case _ => log( "Ignoring unknown message : " + msg )
+//         case _ => log( "Ignoring unknown message : " + msg )
+         case _ => relay( msg )
       }
    }
 

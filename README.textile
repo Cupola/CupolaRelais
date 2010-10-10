@@ -1,0 +1,24 @@
+h2. README
+
+OSC Relais for the Mind Cupola project. Uses Scala 2.8.0 and NetUtil 0.38.
+
+After first clone, update the dependancies:
+
+pre. $ sbt update
+
+then compile
+
+pre. $ sbt compile
+
+and finally run the relais
+
+pre. $ sbt run
+
+this should output the following message
+
+pre. [info] Running de.sciss.cupola.relais.CupolaRelais 
+Starting server at Ezra.local/192.168.0.3:1201 (tcp)
+
+The client (Cupola.app) can connect to the relais on the same machine by engaging the right-most checkbox button in the Cupola GUI window ("Connect to relais"). The relais should print the following message
+
+pre. NOTIFY /127.0.0.1:49276 : true
